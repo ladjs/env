@@ -14,6 +14,7 @@
 
 * [Install](#install)
 * [Usage](#usage)
+* [Options](#options)
 * [Contributors](#contributors)
 * [License](#license)
 
@@ -36,9 +37,24 @@ yarn add @ladjs/env
 ## Usage
 
 ```js
-const env = require('@ladjs/env');
+const env = require('@ladjs/env')();
 
 console.log(env);
+```
+
+
+## Options
+
+You can pass any option as you otherwise would normally to [dotenv-extended][].
+
+Here is the default option argument, note that it supports a `.env.test` path for `TEST` and `TESTING` environments as specified through `process.env.NODE_ENV`.
+
+```js
+const env = require('@ladjs/env')({
+  silent: false,
+  errorOnMissing: true,
+  errorOnExtra: true
+});
 ```
 
 
@@ -59,3 +75,5 @@ console.log(env);
 [npm]: https://www.npmjs.com/
 
 [yarn]: https://yarnpkg.com/
+
+[dotenv-extended]: https://github.com/keithmorris/node-dotenv-extended

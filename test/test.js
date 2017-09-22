@@ -1,7 +1,11 @@
 const test = require('ava');
 
-const env = require('../');
+const setupEnv = require('../');
 
-test('is object', t => {
-  t.true(typeof env === 'object');
+test('is function', t => {
+  t.true(typeof setupEnv === 'function');
+});
+
+test('returns object', t => {
+  t.true(typeof setupEnv() === 'object');
 });
