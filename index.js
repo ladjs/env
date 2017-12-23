@@ -1,11 +1,10 @@
 const dotenvExtended = require('@ladjs/dotenv-extended');
-const dotenvMustache = require('dotenv-mustache');
+const Mustache = require('mustache');
 const dotenvParseVariables = require('dotenv-parse-variables');
 
 const setupEnv = (config = {}) => {
   config = Object.assign(
     {
-      silent: false,
       errorOnMissing: true,
       errorOnExtra: true
     },
@@ -13,9 +12,13 @@ const setupEnv = (config = {}) => {
   );
 
   let env = dotenvExtended.load(config);
-  env = dotenvMustache(env);
+  Object.keys(env).forEach(key => {
+    if (key.indexOf('{{') !== -1) env[key] = Mustache.render(key, env);
+  });
   env = dotenvParseVariables(env);
-
+  Object.keys(env).forEach(key => {
+    if (typeof process.env[key] === 'undefined') process.env[key] = env[key];
+  });
   return env;
 };
 
