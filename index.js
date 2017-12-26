@@ -13,7 +13,8 @@ const setupEnv = (config = {}) => {
 
   let env = dotenvExtended.load(config);
   Object.keys(env).forEach(key => {
-    if (key.indexOf('{{') !== -1) env[key] = Mustache.render(key, env);
+    if (env[key].indexOf('{{') !== -1)
+      env[key] = Mustache.render(env[key], env);
   });
   env = dotenvParseVariables(env);
   Object.keys(env).forEach(key => {
