@@ -1,6 +1,6 @@
 const test = require('ava');
 
-const setupEnv = require('../');
+const setupEnv = require('..');
 
 test('is function', t => {
   t.true(typeof setupEnv === 'function');
