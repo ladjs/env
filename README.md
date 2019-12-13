@@ -51,9 +51,17 @@ Here is the default option argument, note that it supports a `.env.test` path fo
 
 ```js
 const env = require('@ladjs/env')({
-  silent: false,
+  encoding: 'utf8',
+  silent: true,
+  path: '.env',
+  defaults: '.env.defaults',
+  schema: '.env.schema',
   errorOnMissing: true,
-  errorOnExtra: true
+  errorOnExtra: true,
+  errorOnRegex: false,
+  includeProcessEnv: true,
+  assignToProcessEnv: true,
+  overrideProcessEnv: false,
 });
 ```
 
