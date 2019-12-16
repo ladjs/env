@@ -11,7 +11,7 @@
     "Nick Baugh <niftylettuce@gmail.com> (http://niftylettuce.com/)"
   ],
   "dependencies": {
-    "dotenv-extended": "^2.6.0",
+    "dotenv-extended": "^2.7.0",
     "dotenv-parse-variables": "^0.2.3",
     "mustache": "^3.1.0"
   },
@@ -21,7 +21,7 @@
     "cross-env": "^6.0.3",
     "eslint": "^6.7.2",
     "eslint-config-prettier": "^6.7.0",
-    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-prettier": "^3.1.2",
     "husky": "^3.1.0",
     "lint-staged": "^9.5.0",
     "nyc": "^14.1.1",
@@ -81,7 +81,7 @@
     "lint": "xo && remark . -qfo",
     "precommit": "lint-staged && npm test",
     "test": "npm run lint && npm run test-coverage",
-    "test-coverage": "cross-env NODE_ENV=test nyc ava"
+    "test-coverage": "nyc ava"
   },
   "xo": {
     "extends": "prettier",

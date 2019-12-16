@@ -19,13 +19,14 @@ const setupEnv = (config = {}) => {
   };
 
   let env = dotenvExtended.load(config);
-  Object.keys(env).forEach(key => {
-    if (env[key].includes('{{')) env[key] = Mustache.render(env[key], env);
-  });
+  const keys = Object.keys(env);
+  for (const element of keys) {
+    if (env[element].includes('{{'))
+      env[element] = Mustache.render(env[element], env);
+  }
+
   env = dotenvParseVariables(env);
-  Object.keys(env).forEach(key => {
-    if (typeof process.env[key] === 'undefined') process.env[key] = env[key];
-  });
+  Object.assign(process.env, env);
   return env;
 };
 
