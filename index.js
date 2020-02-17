@@ -10,7 +10,7 @@ const setupEnv = (config = {}) => {
     defaults: '.env.defaults',
     schema: '.env.schema',
     errorOnMissing: true,
-    errorOnExtra: true,
+    errorOnExtra: false,
     errorOnRegex: false,
     includeProcessEnv: true,
     assignToProcessEnv: true,
