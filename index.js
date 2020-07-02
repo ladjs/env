@@ -25,6 +25,15 @@ const setupEnv = (config = {}) => {
       env[element] = Mustache.render(env[element], env);
   }
 
+  //
+  // add support for variables defined in other variables
+  // (basically double looping will do the trick)
+  //
+  for (const element of keys) {
+    if (env[element].includes('{{'))
+      env[element] = Mustache.render(env[element], env);
+  }
+
   env = dotenvParseVariables(env);
   Object.assign(process.env, env);
   return env;
