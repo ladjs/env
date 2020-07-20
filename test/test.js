@@ -14,3 +14,9 @@ test('is function', (t) => {
 test('returns object', (t) => {
   t.true(typeof env() === 'object');
 });
+
+test('variables defined in other variables', (t) => {
+  process.env.JUNGLE = 'test_{{PANTHER}}';
+  process.env.PANTHER = 'panther_{{NODE_ENV}}';
+  t.is(env().JUNGLE, 'test_panther_test');
+});
