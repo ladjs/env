@@ -12,23 +12,23 @@
   ],
   "dependencies": {
     "dotenv-extended": "^2.8.0",
-    "dotenv-parse-variables": "^0.3.1",
+    "dotenv-parse-variables": "^1.0.1",
     "mustache": "^4.0.1"
   },
   "devDependencies": {
-    "ava": "^3.10.1",
-    "codecov": "^3.7.1",
+    "ava": "^3.12.1",
+    "codecov": "^3.7.2",
     "cross-env": "^7.0.2",
-    "eslint": "^7.5.0",
+    "eslint": "^7.9.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.4",
-    "husky": "^4.2.5",
-    "lint-staged": "^10.2.11",
+    "husky": "^4.3.0",
+    "lint-staged": "^10.3.0",
     "nyc": "^15.1.0",
-    "prettier": "^2.0.5",
+    "prettier": "^2.1.1",
     "remark-cli": "^8.0.1",
-    "remark-preset-github": "^2.0.2",
-    "xo": "^0.32.1"
+    "remark-preset-github": "^3.0.0",
+    "xo": "^0.33.1"
   },
   "engines": {
     "node": ">=8.3"
