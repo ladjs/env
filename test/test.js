@@ -1,3 +1,4 @@
+const path = require('path');
 const test = require('ava');
 
 const env = require('..');
@@ -19,4 +20,13 @@ test('variables defined in other variables', (t) => {
   process.env.JUNGLE = 'test_{{PANTHER}}';
   process.env.PANTHER = 'panther_{{NODE_ENV}}';
   t.is(env().JUNGLE, 'test_panther_test');
+});
+
+test('null/empty variables defined in other variables', (t) => {
+  t.is(
+    env({
+      path: path.join(__dirname, 'env')
+    }).BAR,
+    ''
+  );
 });
