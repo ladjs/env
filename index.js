@@ -3,20 +3,23 @@ const Mustache = require('mustache');
 const dotenvParseVariables = require('dotenv-parse-variables');
 
 const setupEnv = (config = {}) => {
-  config = {
-    encoding: 'utf8',
-    silent: true,
-    path: '.env',
-    defaults: '.env.defaults',
-    schema: '.env.schema',
-    errorOnMissing: true,
-    errorOnExtra: false,
-    errorOnRegex: false,
-    includeProcessEnv: true,
-    assignToProcessEnv: true,
-    overrideProcessEnv: false,
-    ...config
-  };
+  // eslint-disable-next-line prefer-object-spread
+  config = Object.assign(
+    {
+      encoding: 'utf8',
+      silent: true,
+      path: '.env',
+      defaults: '.env.defaults',
+      schema: '.env.schema',
+      errorOnMissing: true,
+      errorOnExtra: false,
+      errorOnRegex: false,
+      includeProcessEnv: true,
+      assignToProcessEnv: true,
+      overrideProcessEnv: false
+    },
+    config
+  );
 
   let env = dotenvExtended.load(config);
   const keys = Object.keys(env);
@@ -35,6 +38,7 @@ const setupEnv = (config = {}) => {
   }
 
   env = dotenvParseVariables(env);
+  // eslint-disable-next-line n/prefer-global/process
   Object.assign(process.env, env);
   return env;
 };

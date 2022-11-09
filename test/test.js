@@ -1,4 +1,6 @@
+const process = require('process');
 const path = require('path');
+
 const test = require('ava');
 
 const env = require('..');
